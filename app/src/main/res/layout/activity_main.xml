@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#28baef"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/weatherImg"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+
+        android:src="@drawable/sunny"/>
+
+    <TextView
+        android:id="@+id/temperatureLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_toRightOf="@id/weatherImg"
+        android:layout_toEndOf="@id/weatherImg"
+        android:text="@string/temperatureTemplate"
+        android:textSize="90sp"
+        android:textStyle="normal"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/locationLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@id/weatherImg"
+        android:layout_toEndOf="@id/weatherImg"
+        android:layout_below="@id/temperatureLbl"
+        android:text="@string/locationTemplate"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:textColor="#F1F1F1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationLbl"
+        android:layout_toRightOf="@id/weatherImg"
+        android:layout_toEndOf="@id/weatherImg"
+        android:layout_marginLeft="28dp"
+
+        android:orientation="horizontal"
+        android:layout_marginStart="28dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/water_drop"
+            android:contentDescription="Rain percentage icon" />
+        <TextView
+            android:id="@+id/currentRainPercentageLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13%"
+            android:textSize="23sp"
+            android:textColor="@color/textColour"/>
+
+    </LinearLayout>
+
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="229dp">
+
+        <!--include forecast layout-->
+       <include layout="@layout/weekly_forecast" android:id="@+id/weeklyForecast"/>
+    </HorizontalScrollView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation" />
+
+</RelativeLayout>
